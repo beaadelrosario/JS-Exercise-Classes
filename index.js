@@ -41,14 +41,14 @@ class Airplane {
 */
 
 class Person {
-  constructor(attributes) {
-    this.name = attributes.name;
-    this.age = attributes.age;
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
     this.stomach = [];
   }
-  eat() {
+  eat(edible) {
     if(this.stomach.length < 10){
-      this.stomach.push(attributes); //not sure if this is right - why is my param?
+      this.stomach.push(edible); //not sure if this is right - why is my param?
     }
   }
   poop() {
@@ -57,8 +57,17 @@ class Person {
   toString () {
     return `${this.name}, ${this.age}`;
   }
-}
+};
 
+const personOne = new Person('Bea', 29);
+
+console.log(personOne.toString());
+personOne.eat('pizza');
+personOne.eat('boba');
+personOne.eat('brownies');
+console.log(personOne.stomach);
+personOne.poop();
+console.log(personOne.stomach);
 
 
 /*
@@ -76,8 +85,31 @@ class Person {
 */
 
 class Car {
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons) {
+    this.tank += gallons
+  }
+  drive(distance) {
+    if (this.tank - distance / this.milesPerGallon > 0){
+      this.odometer += distance 
+      this.tank -= distance / this.milesPerGallon 
+      }else { 
+        this.odometer += this.milesPerGallon * this.tank 
+        this.tank = 0 
+        return `I ran out of fuel at ${this.odometer} miles!`;
+      } 
+  }
+};
 
-}
+const carOne = new Car ('Jetta', 24);
+
+carOne.fill(10);
+console.log(carOne);
 
 /*
   TASK 3
@@ -92,8 +124,22 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor (attributes){
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.location = attributes.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
+};
 
-}
+const studentOne = new Lambdasian ({name: 'Matt', age: 30, location: 'San Francisco'});
+
+console.log(studentOne);
+studentOne.speak();
+console.log(studentOne.speak());
+
 
 /*
   TASK 4
