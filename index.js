@@ -216,10 +216,10 @@ class Student extends Lambdasian{
     return `Loving ${this.favSubjects}!`;
   }
   PRAssignment(student, subject){
-    return `${student.name} has submitted a PR for ${subject}.`;
+    return `${student} has submitted a PR for ${subject}.`;
   }
   sprintChallenge(student, subject){
-    return `${student.name} has begun sprint challenge on ${subject}`
+    return `${student} has begun sprint challenge on ${subject}`
   }
 };
 
@@ -252,9 +252,16 @@ console.log(Bob.sprintChallenge());
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
-}
+class ProjectManager extends Instructor{
+  constructor(attributes) {
+    super(attributes);
+    this.gradClassName: attributes.gradClassName;
+    this.favInstructor: attributes.favInstructor;
+  }
+  standup(slackChannel){
+    return `${name} announces to ${channel}, @channel standy times!`
+  }
+};
 
 /*
   STRETCH PROBLEM (no tests!)
