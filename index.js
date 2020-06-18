@@ -162,7 +162,33 @@ class Instructor extends Lambdasian {
     this.favLanguage = attributes.favLanguage;
     this.catchPhrase = attributes.catchPhrase;
   }
-}
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject){
+    return `${student.name} receives a perfect score on ${subject}`;
+  }
+};
+
+const instructorOne = new Instructor({
+  name: 'Tim', 
+  age: 29, 
+  location: 'Oregon', 
+  specialty: 'redux', 
+  favLanguage: 'JavaScript', 
+  catchPhrase: "Don't forget the homies"
+});
+
+// let Sam = new Student({
+//   name: 'Sam', 
+//   age: 21, 
+// }); 
+
+console.log(instructorOne);
+
+instructorOne.demo('JavaScript');
+console.log(instructorOne.demo('JavaScript.'));
+
 
 /*
   TASK 5
@@ -179,9 +205,39 @@ class Instructor extends Lambdasian {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian{
+  constructor(attributes) {
+    super(attributes);
+    this.previousBackground = attributes.previousBackground;
+    this.className = attributes.className;
+    this.favSubjects = attributes.favSubjects;
+  }
+  listSubjects(){
+    return `Loving ${this.favSubjects}!`;
+  }
+  PRAssignment(student, subject){
+    return `${student.name} has submitted a PR for ${subject}.`;
+  }
+  sprintChallenge(student, subject){
+    return `${student.name} has begun sprint challenge on ${subject}`
+  }
+};
 
-}
+let Bob = new Student({
+  name: 'Bobby', 
+  age: 29, 
+  location: 'Oregon', 
+  previousBackground: 'Previous to Lambda School I was a professional waterboy.',
+  className: 'CS132',
+  favSubjects: ['HTML', 'CSS', 'JS'],
+});
+
+console.log(Bob);
+console.log(Bob.listSubjects());
+
+console.log(Bob.PRAssignment());
+
+console.log(Bob.sprintChallenge());
 
 /*
   TASK 6
