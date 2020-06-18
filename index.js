@@ -215,11 +215,11 @@ class Student extends Lambdasian{
   listSubjects(){
     return `Loving ${this.favSubjects}!`;
   }
-  PRAssignment(student, subject){
-    return `${student} has submitted a PR for ${subject}.`;
+  PRAssignment(subject){
+    return `${Student.name} has submitted a PR for ${subject}.`;
   }
-  sprintChallenge(student, subject){
-    return `${student} has begun sprint challenge on ${subject}`
+  sprintChallenge(subject){
+    return `${Student.name} has begun sprint challenge on ${subject}`
   }
 };
 
@@ -232,12 +232,9 @@ let Bob = new Student({
   favSubjects: ['HTML', 'CSS', 'JS'],
 });
 
-console.log(Bob);
 console.log(Bob.listSubjects());
-
-console.log(Bob.PRAssignment());
-
-console.log(Bob.sprintChallenge());
+console.log(Bob.PRAssignment('JS'));
+console.log(Bob.sprintChallenge('JS'));
 
 /*
   TASK 6
@@ -255,13 +252,31 @@ console.log(Bob.sprintChallenge());
 class ProjectManager extends Instructor{
   constructor(attributes) {
     super(attributes);
-    this.gradClassName: attributes.gradClassName;
-    this.favInstructor: attributes.favInstructor;
+    this.gradClassName = attributes.gradClassName;
+    this.favInstructor = attributes.favInstructor;
   }
   standup(slackChannel){
-    return `${name} announces to ${channel}, @channel standy times!`
+    return `${name} announces to ${slackChannel}, @channel standy times!`;
+  }
+  debugsCode(subject){
+    return `${name} debugs ${Student.name}'s code on ${subject}`;
   }
 };
+
+const PMOne = new ProjectManager({
+  name: 'Pauline', 
+  age: 25, 
+  location: 'New York City', 
+  specialty: 'react', 
+  favLanguage: 'JavaScript', 
+  catchPhrase: "Don't stop believing!",
+  gradClassName: 'CS1',
+  favInstructor: 'Sean',
+});
+
+console.log(PMOne.standup());
+console.log(PMOne.debugsCode());
+
 
 /*
   STRETCH PROBLEM (no tests!)
