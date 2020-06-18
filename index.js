@@ -47,7 +47,15 @@ class Person {
     this.stomach = [];
   }
   eat() {
-
+    if(this.stomach.length < 10){
+      this.stomach.push(attributes); //not sure if this is right - why is my param?
+    }
+  }
+  poop() {
+    this.stomach = [];
+  }
+  toString () {
+    return `${this.name}, ${this.age}`;
   }
 }
 
