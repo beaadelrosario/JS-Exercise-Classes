@@ -269,6 +269,8 @@ const PMOne = new ProjectManager({
 });
 
 console.log(PMOne.standUp('@Help'));
+
+//chrome console
 // console.log(PMOne.debugsCode(studentOne, ));
 
 // console.log(instructorOne.demo('JavaScript.'));
@@ -278,7 +280,36 @@ console.log(PMOne.standUp('@Help'));
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+
+  let studentOne = new Student({
+    name: 'Bobby', 
+    age: 29, 
+    location: 'Oregon', 
+    previousBackground: 'Previous to Lambda School I was a professional waterboy.',
+    className: 'CS132',
+    favSubjects: ['HTML', 'CSS', 'JS'],
+    grade: 95
+});
+
     - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+    
+  class Instructor extends Lambdasian {
+    constructor(attributes) {
+      super(attributes);
+      this.specialty = attributes.specialty;
+      this.favLanguage = attributes.favLanguage;
+      this.catchPhrase = attributes.catchPhrase;
+  }
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject){
+    return ${this.grade} + Math.round(Math.random();
+    return `${student.name} receives a perfect score on ${subject}`;
+  }
+};
+
+
     - Add a graduate method to a student.
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
