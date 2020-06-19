@@ -134,11 +134,11 @@ class Lambdasian {
   }
 };
 
-const studentOne = new Lambdasian ({name: 'Matt', age: 30, location: 'San Francisco'});
+const alien = new Lambdasian ({name: 'Matt', age: 30, location: 'San Francisco'});
 
-console.log(studentOne);
-studentOne.speak();
-console.log(studentOne.speak());
+console.log(alien);
+alien.speak();
+console.log(alien.speak());
 
 
 /*
@@ -179,16 +179,8 @@ const instructorOne = new Instructor({
   catchPhrase: "Don't forget the homies"
 });
 
-// let Sam = new Student({
-//   name: 'Sam', 
-//   age: 21, 
-// }); 
 
 console.log(instructorOne);
-
-instructorOne.demo('JavaScript');
-console.log(instructorOne.demo('JavaScript.'));
-
 
 /*
   TASK 5
@@ -216,14 +208,14 @@ class Student extends Lambdasian{
     return `Loving ${this.favSubjects}!`;
   }
   PRAssignment(subject){
-    return `${Student.name} has submitted a PR for ${subject}.`;
+    return `${this.name} has submitted a PR for ${subject}`;
   }
   sprintChallenge(subject){
-    return `${Student.name} has begun sprint challenge on ${subject}`
+    return `${this.name} has begun sprint challenge on ${subject}`
   }
 };
 
-let Bob = new Student({
+let studentOne = new Student({
   name: 'Bobby', 
   age: 29, 
   location: 'Oregon', 
@@ -232,9 +224,11 @@ let Bob = new Student({
   favSubjects: ['HTML', 'CSS', 'JS'],
 });
 
-console.log(Bob.listSubjects());
-console.log(Bob.PRAssignment('JS'));
-console.log(Bob.sprintChallenge('JS'));
+console.log(studentOne.listSubjects());
+
+studentOne.PRAssignment(studentOne,'JS');
+console.log(studentOne.PRAssignment(studentOne,'JS'));
+console.log(studentOne.sprintChallenge(studentOne,'JS'));
 
 /*
   TASK 6
@@ -255,11 +249,11 @@ class ProjectManager extends Instructor{
     this.gradClassName = attributes.gradClassName;
     this.favInstructor = attributes.favInstructor;
   }
-  standup(slackChannel){
-    return `${name} announces to ${slackChannel}, @channel standy times!`;
+  standUp(slackChannel){
+    return `${this.name} announces to ${slackChannel}, @channel standy times!`;
   }
-  debugsCode(subject){
-    return `${name} debugs ${Student.name}'s code on ${subject}`;
+  debugsCode(student,subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
 };
 
@@ -274,8 +268,11 @@ const PMOne = new ProjectManager({
   favInstructor: 'Sean',
 });
 
-console.log(PMOne.standup());
-console.log(PMOne.debugsCode());
+console.log(PMOne.standUp('@Help'));
+// console.log(PMOne.debugsCode(studentOne, ));
+
+// console.log(instructorOne.demo('JavaScript.'));
+// console.log(instructorOne.grade(studentOne,'JavaScript'))
 
 
 /*
